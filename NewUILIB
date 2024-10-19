@@ -1091,7 +1091,7 @@ function Kavo.CreateLib(kavName, themeList)
 
 				updateSectionFrame()
 				UpdateSize()
-				
+
 				local triggered = false
 
 				btn.MouseButton1Click:Connect(function()
@@ -1140,6 +1140,10 @@ function Kavo.CreateLib(kavName, themeList)
 								c:Destroy()
 							end
 							toggled = not toggled
+							coroutine.wrap(function()
+								task.wait(.5)
+								triggered = false
+							end)
 							pcall(callback, toggled)
 						else
 							for i,v in next, infoContainer:GetChildren() do
@@ -1147,9 +1151,11 @@ function Kavo.CreateLib(kavName, themeList)
 								focusing = false
 							end
 							Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
+							coroutine.wrap(function()
+								task.wait(.5)
+								triggered = false
+							end)
 						end
-						task.wait(.5)
-						triggered = false
 					end
 				end)
 				local hovering = false
