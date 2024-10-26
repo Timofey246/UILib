@@ -1101,10 +1101,6 @@ function Kavo.CreateLib(kavName, themeList)
 							triggered = false
 						end)
 						if not focusing then
-							delay(.1, function()
-								toggled = not toggled
-								pcall(callback, toggled)
-							end)
 							if toggled == false then
 								game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
 									ImageTransparency = 0
@@ -1146,6 +1142,8 @@ function Kavo.CreateLib(kavName, themeList)
 								end
 								c:Destroy()
 							end
+							toggled = not toggled
+							pcall(callback, toggled)
 						else
 							for i,v in next, infoContainer:GetChildren() do
 								Utility:TweenObject(v, {Position = UDim2.new(0,0,2,0)}, 0.2)
