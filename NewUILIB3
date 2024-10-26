@@ -1102,6 +1102,7 @@ function Kavo.CreateLib(kavName, themeList)
 						end)
 						if not focusing then
 							coroutine.wrap(function()
+								toggled = not toggled
 								pcall(callback, toggled)
 							end)()
 							if toggled == false then
@@ -1145,7 +1146,6 @@ function Kavo.CreateLib(kavName, themeList)
 								end
 								c:Destroy()
 							end
-							toggled = not toggled
 						else
 							for i,v in next, infoContainer:GetChildren() do
 								Utility:TweenObject(v, {Position = UDim2.new(0,0,2,0)}, 0.2)
