@@ -1097,10 +1097,9 @@ function Kavo.CreateLib(kavName, themeList)
 				btn.MouseButton1Click:Connect(function()
 					if not triggered then
 						triggered = true
-						coroutine.wrap(function()
-							task.wait(.5)
+						delay(.5, function()
 							triggered = false
-						end)()
+						end)
 						if not focusing then
 							if toggled == false then
 								game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
@@ -1119,7 +1118,7 @@ function Kavo.CreateLib(kavName, themeList)
 								c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', len, true, nil)
 								for i = 1, 10 do
 									c.ImageTransparency = c.ImageTransparency + 0.05
-									wait(len / 12)
+									task.wait(len / 12)
 								end
 								c:Destroy()
 							else
@@ -1139,7 +1138,7 @@ function Kavo.CreateLib(kavName, themeList)
 								c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', len, true, nil)
 								for i = 1, 10 do
 									c.ImageTransparency = c.ImageTransparency + 0.05
-									wait(len / 12)
+									task.wait(len / 12)
 								end
 								c:Destroy()
 							end
