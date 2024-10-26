@@ -1101,10 +1101,10 @@ function Kavo.CreateLib(kavName, themeList)
 							triggered = false
 						end)
 						if not focusing then
-							coroutine.wrap(function()
+							delay(.1, function()
 								toggled = not toggled
 								pcall(callback, toggled)
-							end)()
+							end)
 							if toggled == false then
 								game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
 									ImageTransparency = 0
